@@ -1,5 +1,4 @@
 <?php
-echo __DIR__. "/../fragments/showComments.php";
 session_start();
 include __DIR__. "/../fragments/accField.php";
 include_once __DIR__. "/../fragments/showComments.php";

@@ -1,6 +1,12 @@
 <?php
 
-use TastyRecipe\Model\Comment;
+namespace TastyRecipe\View;
+
+use \TastyRecipe\Util\Util;
+use \TastyRecipe\Model\Comment;
+use \TastyRecipe\Controller\SessionManager;
+
+
 require_once 'classes/TastyRecipe/Model/Comment.php';
 
 if (!empty($_POST['comment'])) {
@@ -11,7 +17,7 @@ if (!empty($_POST['comment'])) {
         $commentFile = "commentData/commentsMeatballs.txt";
     }
     session_start();
-    $comment = new Comment($_SESSION['USERNAME'], $_POST['comment']);
+    $comment = new Comment($_SESSION['username'], $_POST['comment']);
     file_put_contents($commentFile, serialize($comment) . ";\n", FILE_APPEND);
 
     include "resources/views/" . $_POST['redirect'];

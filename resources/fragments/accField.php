@@ -5,7 +5,7 @@ function accField($thisPage)
         echo '<div class="formgroup">
 				<form action="../../logout.php" method="post">
 				    <input type="hidden" name="redirect" value="' . $thisPage . '"/>
-					<label for="User">User - ' . $_SESSION['USERNAME'] . ' </label>
+					<label for="User">User - ' . $_SESSION['username'] . ' </label>
 					<input class="formButton" type="submit" value="logout">
 				</form>
 			</div>';
@@ -15,9 +15,9 @@ function accField($thisPage)
 				<form action="../../login.php" method="post">
 				    <input type="hidden" name="redirect" value="' . $thisPage . '"/>
 					<label for="loginName">Username:</label>
-					<input class="textField" type="text" name="USERNAME"/>
+					<input class="textField" type="text" name="username"/>
 					<label for="loginPass">Password:</label>
-					<input class="textField" type="password" name="PASSWORD"/>
+					<input class="textField" type="password" name="password"/>
 					<input class="formButton" type="submit" value="Login">
 				</form>
 			</div>';

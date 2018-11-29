@@ -25,7 +25,7 @@ function comments($recipeID, $thisPage)
             }
             $x++;
             echo('<p class="name">' . $comment->getUsername() . '</p>');
-            if ($comment->getUsername() === $_SESSION['USERNAME']) {
+            if ($comment->getUsername() === $_SESSION[KEY_USER]) {
                 echo("<form action='deleteComment.php?" . $recipeID . "' method='post'>");
                 echo('<input type="hidden" name="redirect" value="' . $thisPage . '"/>');
                 echo("<input type='hidden' name='timestamp' value='" .

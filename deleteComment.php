@@ -1,5 +1,10 @@
 <?php
-use TastyRecipe\Model\Comment;
+namespace TastyRecipe\View;
+
+use \TastyRecipe\Util\Util;
+use \TastyRecipe\Model\Comment;
+use \TastyRecipe\Controller\SessionManager;
+
 require_once 'classes/TastyRecipe/Model/Comment.php';
 
 if (!empty($_POST['timestamp'])) {
