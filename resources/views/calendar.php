@@ -1,6 +1,5 @@
 <?php
-session_start();
-include "../fragments/accField.php";
+include_once KEY_FRAGMENTS . "accField.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,17 +13,35 @@ include "../fragments/accField.php";
 </head>
 <body>
 
-<div class="title"><a href="/resources/views/frontPage.php">Tasty Recipes</a></div>
+<div class="title">
+    <form action = "redirect.php" method='post'>
+        <input type="hidden" name="nextPage" value="frontPage.php">
+        <input type="submit" value="Tasty Recipes">
+    </form>
+</div>
 <div class="navbar">
-    <a href="/resources/views/frontPage.php">Home</a>
-    <a class="active" href="/resources/views/calendar.php">Calendar</a>
+    <form class="navbutton" action = "redirect.php" method='post'>
+        <input type="hidden" name="nextPage" value="frontPage.php">
+        <input  type="submit" value="Home">
+    </form>
+    <form class="navbutton" action = "redirect.php" method='post'>
+        <input type="hidden" name="nextPage" value="calendar.php">
+        <input class="active" type="submit" value="Calendar">
+    </form>
     <div class="dropdown">
         <p class="dropbtn">Weekly Recipes
             <i class="fa fa-caret-down"></i>
         </p>
         <div class="dropdown-content">
-            <a href="/resources/views/pancakes.php">Pancakes</a>
-            <a href="/resources/views/meatballs.php">Meatballs</a>
+            <form class="navbutton" action = "redirect.php" method='post'>
+                <input type="hidden" name="nextPage" value="pancakes.php">
+                <input type="submit" value="Pancakes">
+            </form>
+            <form class="navbutton" action = "redirect.php" method='post'>
+                <input type="hidden" name="nextPage" value="meatballs.php">
+                <input type="submit" value="Meatballs">
+            </form>
+
         </div>
     </div>
     <?php

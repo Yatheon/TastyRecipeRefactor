@@ -1,10 +1,9 @@
 <?php
 namespace TastyRecipe\View;
 
-use \TastyRecipe\Util\Util;
-use \TastyRecipe\Controller\SessionManager;
+use TastyRecipe\Util\Util;
 
-if (!isset($_SESSION)) {
-    session_start();
-}
-include 'resources/views/frontPage.php';
+require_once './classes/TastyRecipe/Util/Util.php';
+Util::initRequest();
+
+include KEY_VIEWS . 'frontPage.php';

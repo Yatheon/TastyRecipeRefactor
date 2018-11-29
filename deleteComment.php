@@ -1,13 +1,13 @@
 <?php
 namespace TastyRecipe\View;
 
-use \TastyRecipe\Util\Util;
 use \TastyRecipe\Model\Comment;
-use \TastyRecipe\Controller\SessionManager;
+use \TastyRecipe\Util\Util;
 
-require_once 'classes/TastyRecipe/Model/Comment.php';
+require_once 'classes/TastyRecipe/Util/Util.php';
+Util::initRequest();
 
-if (!empty($_POST['timestamp'])) {
+if (!empty($_POST[KEY_TIMESTAMP])) {
 
     if ($_SERVER['QUERY_STRING'] == 0) {
         $commentFile = "commentData/commentsPancakes.txt";

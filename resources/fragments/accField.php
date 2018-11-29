@@ -3,7 +3,7 @@ function accField($thisPage)
 {
     if (isset($_SESSION['loggedin']) and $_SESSION['loggedin'] == true) {
         echo '<div class="formgroup">
-				<form action="../../logout.php" method="post">
+				<form action="logout.php" method="post">
 				    <input type="hidden" name="redirect" value="' . $thisPage . '"/>
 					<label for="User">User - ' . $_SESSION['username'] . ' </label>
 					<input class="formButton" type="submit" value="logout">
@@ -12,7 +12,7 @@ function accField($thisPage)
     }
     else {
         echo '<div class="formgroup">
-				<form action="../../login.php" method="post">
+				<form action="login.php" method="post">
 				    <input type="hidden" name="redirect" value="' . $thisPage . '"/>
 					<label for="loginName">Username:</label>
 					<input class="textField" type="text" name="username"/>

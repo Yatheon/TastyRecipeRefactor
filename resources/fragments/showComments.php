@@ -1,6 +1,4 @@
 <?php
-use \TastyRecipe\Model\Comment;
-require_once __DIR__. "/../../classes/TastyRecipe/Model/Comment.php";
 
 function comments($recipeID, $thisPage)
 {
@@ -13,8 +11,9 @@ function comments($recipeID, $thisPage)
 
     $comments = explode(";\n", file_get_contents($commentFile));
     $x = 0;
-    for ($i = 0; $i <= count($comments); $i++) {
-
+    echo "Fish";
+    for ($i = 0; $i < count($comments); $i++) {
+        echo "Fish";
         $comment = unserialize($comments[$i]);
         if ($comment instanceof Comment and !$comment->isDeleted()) {
 

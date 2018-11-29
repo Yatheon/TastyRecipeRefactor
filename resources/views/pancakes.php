@@ -1,8 +1,7 @@
 <?php
-session_start();
-include __DIR__. "/../fragments/accField.php";
-include_once __DIR__. "/../fragments/showComments.php";
-include_once __DIR__. "/../fragments/newCommentField.php";
+include_once KEY_FRAGMENTS . "accField.php";
+include_once KEY_FRAGMENTS . "showComments.php";
+include_once KEY_FRAGMENTS . "newCommentField.php";
 ?>
 
 <!DOCTYPE html>
@@ -16,17 +15,35 @@ include_once __DIR__. "/../fragments/newCommentField.php";
     <title>Pancakes</title>
 </head>
 <body>
-<div class="title"><a href="/resources/views/frontPage.php">Tasty Recipes</a></div>
+<div class="title">
+    <form action = "redirect.php" method='post'>
+        <input type="hidden" name="nextPage" value="frontPage.php">
+        <input type="submit" value="Tasty Recipes">
+    </form>
+</div>
 <div class="navbar">
-    <a href="/resources/views/frontPage.php">Home</a>
-    <a href="/resources/views/calendar.php">Calendar</a>
+    <form class="navbutton" action = "redirect.php" method='post'>
+        <input type="hidden" name="nextPage" value="frontPage.php">
+        <input  type="submit" value="Home">
+    </form>
+    <form class="navbutton" action = "redirect.php" method='post'>
+        <input type="hidden" name="nextPage" value="calendar.php">
+        <input type="submit" value="Calendar">
+    </form>
     <div class="dropdown">
         <p class="dropbtn-active">Weekly Recipes
             <i class="fa fa-caret-down"></i>
         </p>
         <div class="dropdown-content">
-            <a class="active" href="/resources/views/pancakes.php">Pancakes</a>
-            <a href="/resources/views/meatballs.php">Meatballs</a>
+            <form class="navbutton" action = "redirect.php" method='post'>
+                <input type="hidden" name="nextPage" value="pancakes.php">
+                <input class="active" type="submit" value="Pancakes">
+            </form>
+            <form class="navbutton" action = "redirect.php" method='post'>
+                <input type="hidden" name="nextPage" value="meatballs.php">
+                <input type="submit" value="Meatballs">
+            </form>
+
         </div>
     </div>
     <?php

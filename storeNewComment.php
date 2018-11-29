@@ -2,14 +2,15 @@
 
 namespace TastyRecipe\View;
 
-use \TastyRecipe\Util\Util;
 use \TastyRecipe\Model\Comment;
-use \TastyRecipe\Controller\SessionManager;
+use \TastyRecipe\Util\Util;
 
+require_once 'classes/TastyRecipe/Util/Util.php';
+Util::initRequest();
 
 require_once 'classes/TastyRecipe/Model/Comment.php';
 
-if (!empty($_POST['comment'])) {
+if (!empty($_POST['KEY_CMT'])) {
 
     if ($_SERVER['QUERY_STRING'] == 0) {
         $commentFile = "commentData/commentsPancakes.txt";
@@ -17,9 +18,9 @@ if (!empty($_POST['comment'])) {
         $commentFile = "commentData/commentsMeatballs.txt";
     }
     session_start();
-    $comment = new Comment($_SESSION['username'], $_POST['comment']);
+    $comment = new Comment($_SESSION['KEY_USER'], $_POST['KEY_CMT']);
     file_put_contents($commentFile, serialize($comment) . ";\n", FILE_APPEND);
 
-    include "resources/views/" . $_POST['redirect'];
+    include KEY_VIEWS . $_POST['redirect'];
 }	
 
