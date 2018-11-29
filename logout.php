@@ -9,4 +9,4 @@ Util::initRequest();
 session_start();
 $_SESSION = array();
 session_destroy();
-include "resources/views/" . $_POST['redirect'];
+include KEY_VIEWS . $_POST['redirect'];

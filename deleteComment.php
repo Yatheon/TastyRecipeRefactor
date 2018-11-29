@@ -27,4 +27,4 @@ if (!empty($_POST[KEY_TIMESTAMP])) {
     file_put_contents($commentFile, implode(";\n", $comments));
 }
 
-    include "resources/views/" . $_POST['redirect'];
+    include KEY_VIEWS . $_POST['redirect'];

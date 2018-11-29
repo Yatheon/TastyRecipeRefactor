@@ -18,12 +18,12 @@ if (!empty($_POST[KEY_USER]) and !empty($_POST['password'])) {
         if ($userData[0] == $_POST[KEY_USER] and $userData[1] == $_POST['password']) {
             $_SESSION[KEY_USER] = $_POST[KEY_USER];
             $_SESSION['loggedin'] = true;
-            include "resources/views/" . $_POST['redirect'];
+            include KEY_VIEWS . $_POST['redirect'];
         }
     }
 
 }
 if ($_SESSION['loggedin'] == false) {
     $_SESSION['failedLogin'] = true;
-    include "resources/views/" . $_POST['redirect'];
+    include KEY_VIEWS . $_POST['redirect'];
 }

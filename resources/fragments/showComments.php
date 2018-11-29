@@ -1,5 +1,5 @@
 <?php
-
+use \TastyRecipe\Model\Comment;
 function comments($recipeID, $thisPage)
 {
 
@@ -11,10 +11,9 @@ function comments($recipeID, $thisPage)
 
     $comments = explode(";\n", file_get_contents($commentFile));
     $x = 0;
-    echo "Fish";
-    for ($i = 0; $i < count($comments); $i++) {
-        echo "Fish";
+    for ($i = 0; $i <= count($comments)-1; $i++) {
         $comment = unserialize($comments[$i]);
+
         if ($comment instanceof Comment and !$comment->isDeleted()) {
 
             if ($x % 2 == 0) {
