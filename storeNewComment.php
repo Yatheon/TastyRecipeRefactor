@@ -8,13 +8,11 @@ use TastyRecipe\Util\Util;
 require_once 'classes/TastyRecipe/Util/Util.php';
 Util::initRequest();
 
-require_once 'classes/TastyRecipe/Model/Comment.php';
-
 if (!empty($_POST[KEY_CMT])) {
 
-    if ($_SERVER['QUERY_STRING'] == 0) {
+    if ($_POST['recipeID'] == 0) {
         $commentFile = "commentData/commentsPancakes.txt";
-    } else if ($_SERVER['QUERY_STRING'] == 1) {
+    } else if ($_POST['recipeID'] == 1) {
         $commentFile = "commentData/commentsMeatballs.txt";
     }
 

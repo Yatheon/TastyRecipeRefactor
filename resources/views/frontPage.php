@@ -1,6 +1,3 @@
-<?php
-include_once KEY_FRAGMENTS . "accField.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,17 +10,17 @@ include_once KEY_FRAGMENTS . "accField.php";
 </head>
 <body>
 <div class="title">
-    <form action = "redirect.php" method='post'>
+    <form action="redirect.php" method='post'>
         <input type="hidden" name="nextPage" value="frontPage.php">
         <input type="submit" value="Tasty Recipes">
     </form>
 </div>
 <div class="navbar">
-    <form class="navbutton" action = "redirect.php" method='post'>
+    <form class="navbutton" action="redirect.php" method='post'>
         <input type="hidden" name="nextPage" value="frontPage.php">
         <input class="active" type="submit" value="Home">
     </form>
-    <form class="navbutton" action = "redirect.php" method='post'>
+    <form class="navbutton" action="redirect.php" method='post'>
         <input type="hidden" name="nextPage" value="calendar.php">
         <input type="submit" value="Calendar">
     </form>
@@ -32,23 +29,21 @@ include_once KEY_FRAGMENTS . "accField.php";
             <i class="fa fa-caret-down"></i>
         </p>
         <div class="dropdown-content">
-            <form class="navbutton" action = "redirect.php" method='post'>
+            <form class="navbutton" action="redirect.php" method='post'>
                 <input type="hidden" name="nextPage" value="pancakes.php">
                 <input type="submit" value="Pancakes">
             </form>
-            <form class="navbutton" action = "redirect.php" method='post'>
+            <form class="navbutton" action="redirect.php" method='post'>
                 <input type="hidden" name="nextPage" value="meatballs.php">
                 <input type="submit" value="Meatballs">
             </form>
-
         </div>
     </div>
     <?php
+    include_once KEY_FRAGMENTS . "accField.php";
     accField("frontPage.php");
     ?>
 </div>
-
-
 <div class="pagetitle">
     <h1>Welcome! </h1>
 </div>
@@ -62,11 +57,10 @@ include_once KEY_FRAGMENTS . "accField.php";
     <div class="textbox">
         <p>Press on the calendar below to find many tasty recipes for every day of the year!</p>
     </div>
-    <form action = "redirect.php" method='post'>
+    <form action="redirect.php" method='post'>
         <input type="hidden" name="nextPage" value="calendar.php">
-        <input  type="image" class="calendar" src="/resources/images/calendar.png" alt="Picture of calendar">
+        <input type="image" class="calendar" src="/resources/images/calendar.png" alt="Picture of calendar">
     </form>
-
 </div>
 <footer></footer>
 </body>

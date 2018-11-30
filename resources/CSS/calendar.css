@@ -67,7 +67,7 @@
     z-index: 1;
 }
 
-.content-image img {
+.content-image input {
     width: 80%;
     height: auto;
 }

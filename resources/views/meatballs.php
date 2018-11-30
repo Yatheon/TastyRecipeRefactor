@@ -1,9 +1,3 @@
-<?php
-include_once KEY_FRAGMENTS . "accField.php";
-include_once KEY_FRAGMENTS . "showComments.php";
-include_once KEY_FRAGMENTS . "newCommentField.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,17 +10,17 @@ include_once KEY_FRAGMENTS . "newCommentField.php";
 </head>
 <body>
 <div class="title">
-    <form action = "redirect.php" method='post'>
+    <form action="redirect.php" method='post'>
         <input type="hidden" name="nextPage" value="frontPage.php">
         <input type="submit" value="Tasty Recipes">
     </form>
 </div>
 <div class="navbar">
-    <form class="navbutton" action = "redirect.php" method='post'>
+    <form class="navbutton" action="redirect.php" method='post'>
         <input type="hidden" name="nextPage" value="frontPage.php">
-        <input  type="submit" value="Home">
+        <input type="submit" value="Home">
     </form>
-    <form class="navbutton" action = "redirect.php" method='post'>
+    <form class="navbutton" action="redirect.php" method='post'>
         <input type="hidden" name="nextPage" value="calendar.php">
         <input type="submit" value="Calendar">
     </form>
@@ -35,11 +29,11 @@ include_once KEY_FRAGMENTS . "newCommentField.php";
             <i class="fa fa-caret-down"></i>
         </p>
         <div class="dropdown-content">
-            <form class="navbutton" action = "redirect.php" method='post'>
+            <form class="navbutton" action="redirect.php" method='post'>
                 <input type="hidden" name="nextPage" value="pancakes.php">
-                <input  type="submit" value="Pancakes">
+                <input type="submit" value="Pancakes">
             </form>
-            <form class="navbutton" action = "redirect.php" method='post'>
+            <form class="navbutton" action="redirect.php" method='post'>
                 <input type="hidden" name="nextPage" value="meatballs.php">
                 <input class="active" type="submit" value="Meatballs">
             </form>
@@ -47,6 +41,7 @@ include_once KEY_FRAGMENTS . "newCommentField.php";
         </div>
     </div>
     <?php
+    include_once KEY_FRAGMENTS . "accField.php";
     accField("meatballs.php");
     ?>
 </div>
@@ -170,8 +165,10 @@ include_once KEY_FRAGMENTS . "newCommentField.php";
 </div>
 
 <?php
-comments(1, "pancakes.php");
-newCommentField(1, "pancakes.php");
+include_once KEY_FRAGMENTS . "showComments.php";
+include_once KEY_FRAGMENTS . "newCommentField.php";
+comments(1, "meatballs.php");
+newCommentField(1, "meatballs.php");
 ?>
 <footer></footer>
 </body>

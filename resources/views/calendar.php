@@ -1,6 +1,3 @@
-<?php
-include_once KEY_FRAGMENTS . "accField.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,6 +42,7 @@ include_once KEY_FRAGMENTS . "accField.php";
         </div>
     </div>
     <?php
+    include_once KEY_FRAGMENTS . "accField.php";
     accField("calendar.php");
     ?>
 
@@ -81,9 +79,10 @@ include_once KEY_FRAGMENTS . "accField.php";
     <div class="day">
         <div class="content-day">1</div>
         <div class="content-image">
-            <a href="pancakes.php">
-                <img src="/resources/images/pancakes.jpg" alt="Pancakes">
-            </a>
+            <form action = "redirect.php" method='post'>
+                <input type="hidden" name="nextPage" value="pancakes.php">
+                <input  type="image" class="calendar" src="/resources/images/pancakes.jpg" alt="Pancakes">
+            </form>
         </div>
     </div>
     <div class="day">
@@ -103,9 +102,10 @@ include_once KEY_FRAGMENTS . "accField.php";
     <div class="day">
         <div class="content-day">6</div>
         <div class="content-image">
-            <a href="meatballs.php">
-                <img src="/resources/images/meatballs.jpg" alt="Meatballs">
-            </a>
+            <form action = "redirect.php" method='post'>
+                <input type="hidden" name="nextPage" value="meatballs.php">
+                <input  type="image" class="calendar" src="/resources/images/meatballs.jpg" alt="Meatballs">
+            </form>
         </div>
     </div>
     <div class="day">

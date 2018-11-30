@@ -3,8 +3,9 @@ function newCommentField($recipeID,$thisPage)
 {
     if (isset($_SESSION['loggedin']) and $_SESSION['loggedin'] == true) {
         echo(
-            '<form action="storeNewComment.php?' . $recipeID . '" method="post">
+            '<form action="storeNewComment.php" method="post">
             <input type="hidden" name="redirect" value="' . $thisPage . '"/>
+            <input type="hidden" name="recipeID" value="' . $recipeID . '">
 			<div class="textbox-wrapper">
 				<textarea class="textField commentTextBox" name="comment" placeholder="Type message.."></textarea>
 			</div>
