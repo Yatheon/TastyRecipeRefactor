@@ -1,11 +1,12 @@
 <?php
+
 function accField($thisPage)
 {
-    if (isset($_SESSION['loggedin']) and $_SESSION['loggedin'] == true) {
+    if (isset($_SESSION['loggedIn']) and $_SESSION['loggedIn'] == true) {
         echo '<div class="formgroup">
 				<form action="logout.php" method="post">
 				    <input type="hidden" name="redirect" value="' . $thisPage . '"/>
-					<label for="User">User - ' . $_SESSION['username'] . ' </label>
+					<label>User - ' . $_SESSION['username'] . ' </label>
 					<input class="formButton" type="submit" value="logout">
 				</form>
 			</div>';
@@ -21,7 +22,7 @@ function accField($thisPage)
 					<input class="formButton" type="submit" value="Login">
 				</form>
 			</div>';
-        if (!isset($_SESSION['loggedin']) and isset($_SESSION['failedLogin']) and $_SESSION['failedLogin'] == true) {
+        if (!isset($_SESSION['loggedIn']) and isset($_SESSION['failedLogin']) and $_SESSION['failedLogin'] == true) {
                 echo("<p class='accFieldError'>Wrong username or password!</p>");
                 $_SESSION['failedLogin'] = false;
 

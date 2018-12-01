@@ -22,6 +22,7 @@ class Util
         self::defineConstant('TIMESTAMP', 'timestamp');
         self::defineConstant('VIEWS', 'resources/views/');
         self::defineConstant('FRAGMENTS', 'resources/fragments/');
+        self::defineConstant('PASSWORD', 'password');
     }
     private static function defineConstant($param, $value){
         define(self::SYMBOL_PREFIX . $param, $value);

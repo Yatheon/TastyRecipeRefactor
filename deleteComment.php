@@ -1,11 +1,18 @@
 <?php
 namespace TastyRecipe\View;
 
+use TastyRecipe\Controller\SessionManager;
 use \TastyRecipe\Model\Comment;
 use \TastyRecipe\Util\Util;
 
 require_once 'classes/TastyRecipe/Util/Util.php';
 Util::initRequest();
+
+
+$contr = SessionManager::getController();
+$username = $contr->getUsername();
+SessionManager::storeController($contr);
+
 
 if (!empty($_POST[KEY_TIMESTAMP])) {
 
