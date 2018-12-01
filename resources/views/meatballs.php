@@ -42,7 +42,7 @@
     </div>
     <?php
     include_once KEY_FRAGMENTS . "accField.php";
-    accField("meatballs.php");
+    accField("meatballs.php", $username);
     ?>
 </div>
 
@@ -165,10 +165,54 @@
 </div>
 
 <?php
-include_once KEY_FRAGMENTS . "showComments.php";
+$comments = $contr->getComments('Meatballs');
+$x = 0;
+foreach($comments as $comment)
+{
+    if ($x % 2 == 0) {
+        echo('<div class="message-container">');
+    } else {
+        echo('<div class="message-container darker">');
+    }
+    $x++;
+    echo('<p class="name">' . $comment->getUsername() . '</p>');
+    if ($comment->getUsername() === $username) {
+        echo("<form action='deleteComment.php' method='post'>");
+        echo('<input type="hidden" name="recipeID" value="1"/>');
+        echo('<input type="hidden" name="redirect" value= "meatballs.php"/>');
+        echo('<input type="hidden" name="timestamp" value="' . $comment->getTime() . '"/>');
+        echo('<input class="delbutton" type="submit" value="X"/>');
+        echo('</form>');
+    }
+
+    echo('<p class="comment">' . $comment->getComment() . '</p>');
+    echo('<p class="time">' . $comment->getCreated() . '</p>');
+    echo('</div>');
+
+}
+
+
+if (isset($_SESSION['loggedIn']) and $_SESSION['loggedIn'] == true) {
+    echo(
+        '<form action="storeNewComment.php" method="post">
+            <input type="hidden" name="redirect" value= "meatballs.php"/>
+            <input type="hidden" name="recipeID" value= "1" >
+			<div class="textbox-wrapper">
+				<textarea class="textField commentTextBox" name="comment" placeholder="Type message.."></textarea>
+			</div>
+			<div class="sendbutton-wrapper">
+				 <input class="sendbutton" type="submit" value="Send"/>
+			</div>
+		</form>'
+    );
+} else {
+    echo('<p class="textbox-wrapper">Login to write comments!</P>');
+}
+
+/*include_once KEY_FRAGMENTS . "showComments.php";
 include_once KEY_FRAGMENTS . "newCommentField.php";
 comments(1, "meatballs.php");
-newCommentField(1, "meatballs.php");
+newCommentField(1, "meatballs.php");*/
 ?>
 <footer></footer>
 </body>

@@ -20,7 +20,10 @@ class UserHandler
         if(($this->password == NULL) or ($this->password != $password)) {
             return false;
         }
-        else return true;
+        else{
+            self::setUsername($username);
+            return true;
+        }
     }
     public function setUsername($username){
         $this->username = $username;

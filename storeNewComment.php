@@ -20,8 +20,7 @@ if (!empty($_POST[KEY_CMT])) {
     } else if ($_POST['recipeID'] == 1) {
         $commentFile = "commentData/commentsMeatballs.txt";
     }
-
-    $comment = new Comment($_SESSION[KEY_USER], $_POST[KEY_CMT]);
+    $comment = new Comment($username, $_POST[KEY_CMT]);
     file_put_contents($commentFile, serialize($comment) . ";\n", FILE_APPEND);
 
     include KEY_VIEWS . $_POST['redirect'];

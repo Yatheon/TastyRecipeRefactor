@@ -60,6 +60,9 @@ footer {
     overflow: hidden;
 }
 
+.navbutton>form{
+    background-color: aqua;
+}
 .navbutton>input {
     font: 14px Arial, Helvetica, sans-serif;
     color: white;
@@ -107,6 +110,7 @@ footer {
 }
 
 .dropdown-content {
+    width: 0;
     display: none;
     position: absolute;
     background-color: #333;

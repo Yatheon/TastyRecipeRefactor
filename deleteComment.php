@@ -16,9 +16,9 @@ SessionManager::storeController($contr);
 
 if (!empty($_POST[KEY_TIMESTAMP])) {
 
-    if ($_SERVER['QUERY_STRING'] == 0) {
+    if ($_POST['recipeID'] == 0) {
         $commentFile = "commentData/commentsPancakes.txt";
-    } else if ($_SERVER['QUERY_STRING'] == 1) {
+    } else if ($_POST['recipeID'] == 1) {
         $commentFile = "commentData/commentsMeatballs.txt";
     }
     $comments = explode(";\n", file_get_contents($commentFile));

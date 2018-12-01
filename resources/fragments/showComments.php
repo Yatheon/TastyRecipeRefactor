@@ -1,5 +1,6 @@
 <?php
 use \TastyRecipe\Model\Comment;
+
 function comments($recipeID, $thisPage)
 {
 
@@ -24,12 +25,12 @@ function comments($recipeID, $thisPage)
             $x++;
             echo('<p class="name">' . $comment->getUsername() . '</p>');
             if ($comment->getUsername() === $_SESSION[KEY_USER]) {
-                echo("<form action='deleteComment.php?" . $recipeID . "' method='post'>");
+                echo("<form action='deleteComment.php' method='post'>");
+                echo('<input type="hidden" name="recipeID" value="' . $recipeID . '"/>');
                 echo('<input type="hidden" name="redirect" value="' . $thisPage . '"/>');
-                echo("<input type='hidden' name='timestamp' value='" .
-                    $comment->getTime() . "'/>");
-                echo("<input class='delbutton' type='submit' value='X'/>");
-                echo("</form>");
+                echo('<input type="hidden" name="timestamp" value="' . $comment->getTime() . '"/>');
+                echo('<input class="delbutton" type="submit" value="X"/>');
+                echo('</form>');
             }
 
             echo('<p class="comment">' . $comment->getComment() . '</p>');

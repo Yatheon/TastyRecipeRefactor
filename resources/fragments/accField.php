@@ -1,12 +1,12 @@
 <?php
 
-function accField($thisPage)
+function accField($thisPage, $username)
 {
     if (isset($_SESSION['loggedIn']) and $_SESSION['loggedIn'] == true) {
         echo '<div class="formgroup">
 				<form action="logout.php" method="post">
 				    <input type="hidden" name="redirect" value="' . $thisPage . '"/>
-					<label>User - ' . $_SESSION['username'] . ' </label>
+					<label>User - ' . $username .' </label>
 					<input class="formButton" type="submit" value="logout">
 				</form>
 			</div>';

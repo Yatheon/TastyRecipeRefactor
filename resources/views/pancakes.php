@@ -41,7 +41,7 @@
     </div>
     <?php
     include_once KEY_FRAGMENTS . "accField.php";
-    accField("pancakes.php");
+    accField("pancakes.php", $username);
     ?>
 </div>
 

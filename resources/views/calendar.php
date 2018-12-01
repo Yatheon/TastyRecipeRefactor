@@ -43,7 +43,7 @@
     </div>
     <?php
     include_once KEY_FRAGMENTS . "accField.php";
-    accField("calendar.php");
+    accField("calendar.php", $username);
     ?>
 
 </div>
