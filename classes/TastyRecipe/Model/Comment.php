@@ -39,7 +39,7 @@ class Comment
     /**
      * @return int The time (on the server) when this entry was created.
      */
-    public function getTime()
+    public function getTimestamp()
     {
         return $this->timestamp;
     }

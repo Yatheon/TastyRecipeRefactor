@@ -10,7 +10,7 @@ Util::initRequest();
 
 $contr = SessionManager::getController();
 $username = $contr->getUsername();
-SessionManager::storeController($contr);
+
 
 include_once KEY_FRAGMENTS . "accField.php";
 include KEY_VIEWS . $_POST['nextPage'];

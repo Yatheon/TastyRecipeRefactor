@@ -180,9 +180,7 @@
 
 <?php
 include_once KEY_FRAGMENTS . "showComments.php";
-include_once KEY_FRAGMENTS . "newCommentField.php";
-comments(0, "pancakes.php");
-newCommentField(0, "pancakes.php");
+showComments($contr->getComments('Pancakes'), $username, "pancakes.php", "Pancakes");
 ?>
 <footer></footer>
 </body>

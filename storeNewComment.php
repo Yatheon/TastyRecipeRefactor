@@ -11,18 +11,15 @@ Util::initRequest();
 
 $contr = SessionManager::getController();
 $username = $contr->getUsername();
+
+if (empty($_POST[KEY_CMT])) {
+    include KEY_VIEWS . $_POST['redirect'];
+    exit();
+}
+
+$comment = new Comment($username, $_POST[KEY_CMT]);
+$fileDist = $_POST['recipeID'];
+$contr->storeComment($fileDist,$comment);
 SessionManager::storeController($contr);
 
-if (!empty($_POST[KEY_CMT])) {
-
-    if ($_POST['recipeID'] == 0) {
-        $commentFile = "commentData/commentsPancakes.txt";
-    } else if ($_POST['recipeID'] == 1) {
-        $commentFile = "commentData/commentsMeatballs.txt";
-    }
-    $comment = new Comment($username, $_POST[KEY_CMT]);
-    file_put_contents($commentFile, serialize($comment) . ";\n", FILE_APPEND);
-
-    include KEY_VIEWS . $_POST['redirect'];
-}	
-
+include KEY_VIEWS . $_POST['redirect'];

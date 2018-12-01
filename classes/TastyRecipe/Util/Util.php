@@ -34,7 +34,7 @@ class Util
         self::defineConstant('PASSWORD', 'password');
         self::defineConstant('CMT_MEATBALLS', 'commentsMeatballs.txt');
         self::defineConstant('CMT_PANCAKES', 'commentsPancakes.txt');
-        self::defineConstant('ENTRY_DELIMITER', ";\n");
+        self::defineConstant('COMMENT_DELIMITER', ";\n");
     }
     private static function defineConstant($param, $value){
         define(self::SYMBOL_PREFIX . $param, $value);
