@@ -1,10 +1,10 @@
 <?php
-
 namespace TastyRecipe\View;
 
 use TastyRecipe\Controller\SessionManager;
-use \TastyRecipe\Model\Comment;
 use TastyRecipe\Util\Util;
+use \TastyRecipe\Model\Comment;
+
 
 require_once 'classes/TastyRecipe/Util/Util.php';
 Util::initRequest();

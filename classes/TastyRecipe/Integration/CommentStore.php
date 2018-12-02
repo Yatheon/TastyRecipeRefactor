@@ -2,7 +2,6 @@
 
 namespace TastyRecipe\Integration;
 
-
 use TastyRecipe\Model\Comment;
 
 class CommentStore
@@ -21,11 +20,27 @@ class CommentStore
     }
 
     /**
+     * get name of recipe
+     * @param $fileDist
+     * @return filename if match is found else false
+     */
+    public static function getFilePath($fileDist){
+        if($fileDist == 'Meatballs') {
+            return 'commentsMeatballs.txt';
+        }
+        elseif ($fileDist == 'Pancakes'){
+            return 'commentsPancakes.txt';
+        }
+        return NULL;
+    }
+
+    /**
      * get comments from file specified in param
      * @param $fileDist
      * @return array comments in form of array of type Comment
      */
     public function getComments($fileDist){
+        $fileDist = self::getFilePath($fileDist);
         $comments = array();
         $commentsInFile = explode(KEY_COMMENT_DELIMITER, file_get_contents($this->folder_path . $fileDist));
         foreach($commentsInFile as $commentInFile){
@@ -43,6 +58,7 @@ class CommentStore
      * @param int $timestamp
      */
     public function deleteComment($fileDist, int $timestamp){
+        $fileDist = self::getFilePath($fileDist);
         $commentsInFile = explode(KEY_COMMENT_DELIMITER, file_get_contents($this->folder_path . $fileDist));
 
         for ($i = count($commentsInFile) - 1; $i >= 0; $i--) {
@@ -62,6 +78,7 @@ class CommentStore
      * @param Comment $comment comment to store
      */
     public function storeComment($fileDist, Comment $comment){
+        $fileDist = self::getFilePath($fileDist);
         file_put_contents($this->folder_path . $fileDist,serialize($comment) . KEY_COMMENT_DELIMITER, FILE_APPEND);
     }
 }

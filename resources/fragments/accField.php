@@ -6,7 +6,7 @@ function accField($thisPage, $username)
         echo '<div class="formgroup">
 				<form action="logout.php" method="post">
 				    <input type="hidden" name="redirect" value="' . $thisPage . '"/>
-					<label>User - ' . $username .' </label>
+					<label>User - ' . htmlentities($username, ENT_QUOTES) .' </label>
 					<input class="formButton" type="submit" value="logout">
 				</form>
 			</div>';

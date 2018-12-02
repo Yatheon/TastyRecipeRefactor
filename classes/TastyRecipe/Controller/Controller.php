@@ -5,6 +5,8 @@ use TastyRecipe\Integration\CommentStore;
 use TastyRecipe\Model\Comment;
 use \TastyRecipe\Model\UserHandler;
 use \TastyRecipe\Util\Util;
+
+
 class Controller
 {
 
@@ -42,7 +44,7 @@ class Controller
      * @return array of Comment
      */
     public function getComments($fileDist){
-        return $this->commentStore->getComments(Util::getFilePath($fileDist));
+        return $this->commentStore->getComments($fileDist);
     }
 
     /**
@@ -51,7 +53,7 @@ class Controller
      * @param Comment $comment comment to be stored in form of class Comment
      */
     public function storeComment($fileDist, Comment $comment ){
-        $this->commentStore->storeComment(Util::getFilePath($fileDist), $comment);
+        $this->commentStore->storeComment($fileDist, $comment);
     }
 
     /**
@@ -60,6 +62,6 @@ class Controller
      * @param $timestamp timestamp of comment to delete
      */
     public function deleteComment($fileDist, $timestamp){
-        $this->commentStore->deleteComment(Util::getFilePath($fileDist), $timestamp);
+        $this->commentStore->deleteComment($fileDist, $timestamp);
     }
 }
