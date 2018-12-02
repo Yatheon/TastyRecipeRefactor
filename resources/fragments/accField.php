@@ -14,7 +14,7 @@ function accField($thisPage, $username)
     else {
         echo '<div class="formgroup">
 				<form action="login.php" method="post">
-				    <input type="hidden" name="redirect" value="' . $thisPage . '"/>
+				    <input type="hidden" name="redirect" value="' . $thisPage  . '"/>
 					<label for="loginName">Username:</label>
 					<input class="textField" type="text" name="username"/>
 					<label for="loginPass">Password:</label>

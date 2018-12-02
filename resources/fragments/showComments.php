@@ -10,12 +10,12 @@ function showComments($comments, $username, $redirect, $recipeID){
             echo('<div class="message-container darker">');
         }
         $x++;
-        echo('<p class="name">' . $comment->getUsername() . '</p>');
+        echo('<p class="name">' .$comment->getUsername() . '</p>');
         if ($comment->getUsername() === $username) {
             echo("<form action='deleteComment.php' method='post'>");
-            echo('<input type="hidden" name="recipeID" value="'. $recipeID . '"/>');
-            echo('<input type="hidden" name="redirect" value= "'. $redirect .'"/>');
-            echo('<input type="hidden" name="timestamp" value="' . $comment->getTimestamp() . '"/>');
+            echo('<input type="hidden" name="recipeID" value="'.  $recipeID . '"/>');
+            echo('<input type="hidden" name="redirect" value= "'.  $redirect .'"/>');
+            echo('<input type="hidden" name="timestamp" value="' . $comment->getTimestamp(). '"/>');
             echo('<input class="delbutton" type="submit" value="X"/>');
             echo('</form>');
         }
@@ -30,8 +30,8 @@ function showComments($comments, $username, $redirect, $recipeID){
     if (isset($_SESSION['loggedIn']) and $_SESSION['loggedIn'] == true) {
         echo(
         '<form action="storeNewComment.php" method="post">
-            <input type="hidden" name="redirect" value= "'. $redirect .'"/>
-            <input type="hidden" name="recipeID" value= "'. $recipeID . '" >
+            <input type="hidden" name="redirect" value= "'.  $redirect .'"/>
+            <input type="hidden" name="recipeID" value= "'.  $recipeID . '" >
 			<div class="textbox-wrapper">
 				<textarea class="textField commentTextBox" name="comment" placeholder="Type message.."></textarea>
 			</div>

@@ -8,11 +8,10 @@ use TastyRecipe\Util\Util;
 
 require_once 'classes/TastyRecipe/Util/Util.php';
 Util::initRequest();
-
 $contr = SessionManager::getController();
 $username = $contr->getUsername();
 
-if (empty($_POST[KEY_CMT])) {
+if (empty($_POST[KEY_CMT]) or !ctype_print($_POST[KEY_CMT]) or $username == NULL) {
     include KEY_VIEWS . $_POST['redirect'];
     exit();
 }

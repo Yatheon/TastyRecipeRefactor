@@ -10,7 +10,7 @@ Util::initRequest();
 $contr = SessionManager::getController();
 
 if (!empty($_POST[KEY_TIMESTAMP])) {
-    $timestamp = $_POST[KEY_TIMESTAMP];
+    $timestamp =(int) $_POST[KEY_TIMESTAMP];
     $fileDist = $_POST['recipeID'];
     $contr->deleteComment($fileDist, $timestamp);
 }

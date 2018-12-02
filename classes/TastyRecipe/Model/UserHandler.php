@@ -26,8 +26,7 @@ class UserHandler
      */
     public function tryLogin($username, $password){
         $this->password = $this->userDataBase->getPassword($username);
-
-        if(($this->password == NULL) or ($this->password != $password)) {
+        if(($this->password == NULL) or !password_verify($password, $this->password )) {
             return false;
         }
         else{
