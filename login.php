@@ -7,7 +7,7 @@ use \TastyRecipe\Util\Util;
 
 require_once 'classes/TastyRecipe/Util/Util.php';
 Util::initRequest();
-
+$contr = SessionManager::getController();
 if (empty($_POST[KEY_USER]) or empty($_POST[KEY_PASSWORD])) {
     $_SESSION['failedLogin'] = true;
     include KEY_VIEWS . $_POST['redirect'];

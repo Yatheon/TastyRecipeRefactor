@@ -44,8 +44,6 @@ class Util
         self::defineConstant('VIEWS', 'resources/views/');
         self::defineConstant('FRAGMENTS', 'resources/fragments/');
         self::defineConstant('PASSWORD', 'password');
-        self::defineConstant('CMT_MEATBALLS', 'commentsMeatballs.txt');
-        self::defineConstant('CMT_PANCAKES', 'commentsPancakes.txt');
         self::defineConstant('COMMENT_DELIMITER', ";\n");
     }
     private static function defineConstant($param, $value){
