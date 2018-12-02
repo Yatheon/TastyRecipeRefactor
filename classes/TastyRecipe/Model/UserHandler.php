@@ -9,11 +9,21 @@ class UserHandler
     private $userDataBase;
     private $password;
 
+    /**
+     * UserHandler constructor.
+     */
     public function __construct(){
         $this->userDataBase = new UserStore();
         $this->username = NULL;
         $this->loggedIn = false;
     }
+
+    /**
+     * Checks if Username and password matches
+     * @param $username
+     * @param $password
+     * @return bool true if match
+     */
     public function tryLogin($username, $password){
         $this->password = $this->userDataBase->getPassword($username);
 
@@ -25,9 +35,11 @@ class UserHandler
             return true;
         }
     }
+
     public function setUsername($username){
         $this->username = $username;
     }
+
     public function getUsername(){
         return $this->username;
     }

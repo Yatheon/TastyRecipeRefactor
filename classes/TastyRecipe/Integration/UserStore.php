@@ -11,11 +11,18 @@ class UserStore
 
     private $filepath;
 
+    /**
+     * UserStore constructor.
+     */
     public function __construct()
     {
         $this->filepath = __DIR__ . self::PATH_TO_ROOT . self::FILE_DIR . self::FILE_NAME;
     }
 
+    /**
+     * @param $username gets Hashed password from database of corresponding user
+     * @return password if it exists, else NULL
+     */
     public function getPassword($username)
     {
         $file = $this->filepath;

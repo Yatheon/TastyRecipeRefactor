@@ -5,10 +5,16 @@ class Util
 {
     const SYMBOL_PREFIX = 'KEY_';
 
+    /**
+     * Util constructor.
+     */
     private function __construct() {
 
     }
 
+    /**
+     * Requires all files needed, starts new session and define constants
+     */
     public static function initRequest(){
         spl_autoload_register(function ($class) {
             require_once 'classes/' . \str_replace('\\', '/', $class) . '.php';
@@ -16,6 +22,12 @@ class Util
         session_start();
         self::defineConstants();
     }
+
+    /**
+     * get name of recipe
+     * @param $fileDist
+     * @return filename if match is found else false
+     */
     public static function getFilePath($fileDist){
         if($fileDist == 'Meatballs') {
             return 'commentsMeatballs.txt';
